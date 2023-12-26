@@ -1,4 +1,4 @@
-require('dotenv').config({ path: '/home/laravien/Grocery_App/.env' })
+require('dotenv').config()
 
 const { Pool } = require('pg')
 
