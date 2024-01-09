@@ -3,7 +3,7 @@ const db = require('../db/db')
 // get all users
 const getAllUsers = async (req, res) => {
     try {
-        const result = await db.query('SELECT * FROM users')
+        const result = await db.query('SELECT row_to_json(users) FROM users')
         res.json(result.rows)
     } catch (err) {
         console.error(err)
@@ -15,9 +15,10 @@ const getAllUsers = async (req, res) => {
 const getUserById = async (req, res) => {
     const userId = req.params.id
     try {
-        const result = await db.query('SELECT * FROM users WHERE id = $1', [
-            userId,
-        ])
+        const result = await db.query(
+            'SELECT row_to_json (users) FROM users WHERE id = $1',
+            [userId]
+        )
         if (result.rows.length === 0) {
             res.status(404).json({ err: 'User not found' })
         } else {

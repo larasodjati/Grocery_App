@@ -3,7 +3,9 @@ const db = require('../db/db')
 // get all shopping lists
 const getAllShoppingLists = async (req, res) => {
     try {
-        const result = await db.query('SELECT * FROM shopping_list')
+        const result = await db.query(
+            'SELECT row_to_json(shopping_list) FROM shopping_list'
+        )
         res.json(result.rows)
     } catch (err) {
         console.error(err)
@@ -11,12 +13,12 @@ const getAllShoppingLists = async (req, res) => {
     }
 }
 
-// get list by id
+// get shopping list by id
 const getShoppingListById = async (req, res) => {
     const listId = req.params.id
     try {
         const result = await db.query(
-            'SELECT * FROM shopping_list WHERE id = $1',
+            'SELECT row_to_json (shopping_list) FROM shopping_list WHERE id = $1',
             [listId]
         )
         if (result.rows.length === 0) {
