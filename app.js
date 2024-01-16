@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/users')
 const shoppingListRoutes = require('./routes/shoppingList')
@@ -10,11 +11,10 @@ const shoppingItemRoutes = require('./routes/shoppingItem')
 // middleware
 app.use(cors())
 app.use(bodyParser.json())
+app.use(cookieParser())
 
 // login page
-app.get('/', (req, res) => {
-    res.send('<h1>Login Page Temporary</h1>')
-})
+app.use(express.static('public'))
 
 // routes
 app.use('/auth', authRoutes)

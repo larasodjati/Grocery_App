@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Groceries</title>
+</head>
+
+<body>
+    <div>
+        <header>
+            <div>
+                <button type="button" id="logout">logout</button>
+            </div>
+        </header>
+        <br>
+        <div>
+            <h1>The Groceries</h1>
+        </div>
+        <div>
+            <form>
+                <div>
+                    <label for="username" class="input-login">username:</label>
+                    <input type="text" id="username" placeholder="enter your username">
+                </div>
+                <div>
+                    <label for="password" class="input-login">password:</label>
+                    <input type="password" id="password" placeholder="enter your password">
+                </div>
+                <button type="button" id="login-button">login</button>
+                <button type="button" id="login-cancel">cancel</button>
+            </form>
+        </div>
+        <div id="register-div">
+            <form>
+                <div>
+                    <label for="name" class="name">name:</label>
+                    <input type="text" id="name" placeholder="enter your name">
+                </div>
+                <div>
+                    <label for="birthday" class="birthday">birthday:</label>
+                    <input type="date" id="birthday" placeholder="enter your birthday">
+                </div>
+                <div>
+                    <label for="username" class="username">username:</label>
+                    <input type="text" id="register-username" placeholder="enter your username">
+                </div>
+                <div>
+                    <label for="password" class="password">password:</label>
+                    <input type="password" id="register-password" placeholder="enter your password">
+                </div>
+                <button type="button" id="register-button">register</button>
+                <button type="button" id="register-cancel">cancel</button>
+            </form>
+            <hr>
+            <div id="grocery-lists"></div>
+        </div>
+        <script src="./index.js"></script>
+    </div>
+</body>
+</html>
