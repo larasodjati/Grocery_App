@@ -32,7 +32,7 @@ const getShoppingItemById = async (req, res) => {
         const shoppingListId = item.shopping_list_id
 
         const shoppingListResult = await db.query(
-            'SELECT id, list_name FROM shopping_list WHERE id= $1',
+            'SELECT id, list_name FROM shopping_list WHERE id = $1',
             [shoppingListId]
         )
 

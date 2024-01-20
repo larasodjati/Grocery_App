@@ -5,7 +5,7 @@ const loginUser = async (req, res) => {
     const { username, password } = req.body
     try {
         const user = await db.query(
-            'SELECT username from users WHERE username=$1 AND password=$2',
+            'SELECT username from users WHERE username = $1 AND password = $2',
             [username, password]
         )
         if (user.rows.length === 0) {
@@ -25,7 +25,7 @@ const registerUser = async (req, res) => {
 
     try {
         const existingUser = await db.query(
-            'SELECT username from users WHERE username=$1',
+            'SELECT username from users WHERE username = $1',
             [username]
         )
         if (existingUser.rows.length > 0) {
