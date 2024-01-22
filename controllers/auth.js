@@ -35,7 +35,8 @@ const registerUser = asyncHandler(async (req, res) => {
         return res.status(400).json({ err: 'Username already registered' })
     }
     await db.query(
-        'INSERT INTO users (username, password, name, birthday) VALUES ($1, $2, $3, $4)',
+        `INSERT INTO users (username, password, name, birthday) 
+        VALUES ($1, $2, $3, $4)`,
         [username, password, name, birthday]
     )
     res.cookie('username', username, { httpOnly: true })
